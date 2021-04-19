@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS problem solving</title>
+  </head>
+  <body>
+    <!-- 1.Write a JS program to input a number and check positive, negative or zero using if else. -->
+    <script>
+        let num = parseInt(prompt(" Enter a number:"))
+        if (num > 0){
+            document.write( " its a positive number")
+        }
+        else if( num < 0){
+            document.write("its a negative number")
+        }
+        else{
+            document.write(" its a zero")
+               
+        }
+    </script>
+
+    <!-- 2. Write a JS program to input sides of a triangle and check whether a triangle is equilateral, scalene or isosceles triangle using if else. 
+ -->
+    <script>
+        let a= parseInt(prompt(" input the number of A"))
+        let b= parseInt(prompt(" input the number of B"))
+        let c= parseInt(prompt(" input the number of C"))
+ 
+
+        if( a>0 && b>0 && c> 0){
+            if (a==b && b ==c){
+                document.write("the triangle is equilateral ")
+            }else if( a==b || b ==c || c==a ){
+                document.write("the triangle is Isosceles ")
+            }else{
+                document.write("the triangle is scalene ")
+            }
+        }else{
+            document.write("input the valid number grater than 0 ")
+        }
+
+
+    </script>
+
+    <!-- 3. Write a JS program to input sides of a triangle and check if its possible to create a triangle OR not -->
+
+    <script>
+      function checkvalidity(a, b, c) {
+        if (a + b >= c || a + c >= b || b + c >= a) return true;
+        else return false;
+      }
+      let a = parseInt(prompt(" input the number of A"));
+      let b = parseInt(prompt(" input the number of B"));
+      let c = parseInt(prompt(" input the number of C"));
+
+      if (a > 0 && b > 0 && c > 0) {
+        if (checkvalidity(a, b, c)) {
+          document.write("validate");
+        } else {
+          document.write("invalid");
+        }
+      } else {
+        document.write("input the valid number grater than 0 ");
+      }
+    </script>
+
+    <!-- 4. Write a JS program to input marks of five subjects Physics, Chemistry, Biology, Mathematics and Computer, calculate percentage and grade 
+        according to given conditions:
+                                                             If percentage >= 90% : Grade A
+                                                             If percentage >= 80% : Grade B
+                                                             If percentage >= 70% : Grade C
+                                                             If percentage >= 60% : Grade D
+                                                             If percentage >= 40% : Grade E
+                                                             If percentage < 40% : Grade F  -->
+
+    <script>
+      let phy = parseInt(prompt("Enter the number of physics"));
+      let chem = parseInt(prompt("Enter the number of Chemistry"));
+      let bio = parseInt(prompt("Enter the number of Biology"));
+      let math = parseInt(prompt("Enter the number of Mathemetics"));
+      let islam = parseInt(prompt("Enter the number of islam"));
+
+      let tmark = phy + chem + math + bio + islam;
+
+      let total_grade = tmark / 5;
+
+      if (phy >= 40 && chem >= 40 && bio >= 40 && math >= 40 && islam >= 40) {
+        if (total_grade >= 90 && total_grade < 100) {
+            document.write("Your Number Percenentage: " + total_grade + " <br>  Your Grade point: A");
+        }
+        if (total_grade >= 80 && total_grade < 89) {
+          document.write("Your Number Percenentage: " + total_grade + " <br>  Your Grade point: B");
+        }
+        if (total_grade >= 70 && total_grade < 79) {
+            document.write("Your Number Percenentage: " + total_grade + " <br>  Your Grade point: C");
+        }
+        if (total_grade >= 60 && total_grade < 69) {
+            document.write("Your Number Percenentage: " + total_grade + " <br>  Your Grade point: D");
+        }
+        if (total_grade >= 40 && total_grade < 59) {
+            document.write("Your Number Percenentage: " + total_grade + " <br>  Your Grade point: E");
+        }
+      } else {
+        document.write("You are Fail !!!!");
+      }
+    </script>
+
+    <!-- *5. Write a JS program to input electricity unit charge and calculate the total electricity bill according to the given condition:
+For the first 50 units Taka. 0.50/unit
+For the next 100 units, Taka. 0.75/unit
+For the next 100 units, Taka. 1.20/unit
+For units above 250 Taka. 1.50/unit
+An additional surcharge of 20% is added to each bill.
+ -->
+
+    <script>
+      let unit = prompt("Enter your unit:");
+
+      let bill = 0;
+
+      if (unit <= 50) {
+        bill = unit * 0.5;
+      }
+      if (unit > 50 && unit <= 150) {
+        bill = 50 * 0.5 + (unit - 50) * 0.75;
+      }
+      if (unit > 150 && unit <= 250) {
+        bill = 50 * 0.5 + 100 * 0.75 + (unit - 150) * 1.2;
+      }
+      if (unit > 250) {
+        bill = 50 * 0.5 + 100 * 0.75 + 100 * 1.2 + (unit - 250) * 1.5;
+      }
+
+      var total_bill = bill + (bill * 20) / 100;
+
+      document.write(total_bill);
+    </script>
+
+    <!-- *6.  Write a JS program to input a number in a variable and count the number of digits in the given integer and find out the sum of the all digits using a loop.
+input: 12345
+answer: 
+total digit: 5
+sum: 15 -->
+    <script>
+      let num = parseInt(prompt("Please enter a valid integer number"));
+      let digits = num.toString().length;
+      let sum = 0;
+
+        document.write("Your number is: " + num + "<br>");
+        document.write("The digits of this number is: " + digits + "<br>");
+
+        while (num > 0) {
+          sum = sum + (num % 10);
+          num = parseInt(num / 10);
+        }
+        document.write("The sum of digits of this number is: " + sum);
+
+    </script>
+
+    <!-- *7. Write a JS program to input a number as a variable and find the sum of the first and last digit of the number using a loop.
+input: 11114
+answer: 5 -->
+    <script>
+      let number = parseInt(prompt("Enter the number "));
+      let last = number % 10;
+      while (number >= 10) {
+        number = parseInt(number / 10);
+      }
+      var result = number + last;
+      document.write(result);
+    </script>
+
+    <!-- *8. Write a JS program to print all Prime numbers between 1 to n using loop. -->
+    <script>
+      let lowerNumber = parseInt(prompt("Enter lower number: "));
+      let higherNumber = parseInt(prompt("Enter higher number: "));
+
+      document.write(
+        "The prime numbers between " +
+          lowerNumber +
+          " and " +
+          higherNumber +
+          " are: " +
+          "<br>"
+      );
+
+      for (let i = lowerNumber; i <= higherNumber; i++) {
+        let flag = true;
+
+
+        for (let j = 2; j < i; j++) {
+          if (i % j == 0) {
+            flag = false;
+            break;
+          }
+        }
+
+        if (i > 1 && flag == true) {
+          document.write(i + "<br>");
+        }
+      }
+    </script>
+
+    <!-- 9. Write a JS program to print Fibonacci series up to n terms using loop. 
+1 1 2 3 5 8 13 21 34 55 -->
+    <script>
+      const number = parseInt(prompt("Enter the number of terms: "));
+      let n1 = 0,
+        n2 = 1,
+        nextTerm;
+
+      document.write("Fibonacci Series:");
+
+      for (let i = 1; i <= number; i++) {
+        document.write(n1 + "<br>");
+        nextTerm = n1 + n2;
+        n1 = n2;
+        n2 = nextTerm;
+      }
+    </script>
+
+    <!-- 10. Write a JS program to find the sum of all natural numbers between 1 to n using for loop. -->
+    <script>
+        
+      let num = parseInt(prompt("Please enter a valid natural number"));
+
+      let sum = 0;
+
+      for (let i = 1; i <= num; i++) {
+        sum = sum + i;
+      }
+
+      if (num > 0) {
+        document.write("Your natural number is: " + num + "<br>");
+        document.write("Summation of 1 to " + num + " is " + sum + "<br>");
+      } else {
+        document.write("Please enter a valid natural number");
+      }
+    </script>
+  </body>
+</html>
